@@ -1,0 +1,11 @@
+name: trust_safety_analyst
+version: 0.1.0
+description: A real-world Trust & Safety environment where an agent investigates accounts for fraud, phishing, and account takeovers.
+entrypoint: server.env:TrustSafetyEnv
+tasks:
+  - name: easy_phishing
+    description: Triage a straightforward spam/phishing account.
+  - name: med_dispute
+    description: Investigate an Account Takeover (ATO) masquerading as a dispute.
+  - name: hard_fraud_ring
+    description: Uncover and ban a coordinated fraud network using linked IP queries.
