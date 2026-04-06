@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 from openenv.core.env_server import create_fastapi_app
 from .env import TrustSafetyEnv
+from .models import AnalystAction, CaseObservation
 
-# This magically wraps your env into a FastAPI app with /reset, /step, /state
-app = create_fastapi_app(TrustSafetyEnv)
+# We must explicitly pass the Action and Observation models here!
+app = create_fastapi_app(TrustSafetyEnv, AnalystAction, CaseObservation)
 
-# Mandatory Hackathon Endpoints
 @app.get("/baseline")
 async def get_baseline():
     return {"score": 0.0, "message": "Baseline inference will be executed via inference.py"}
